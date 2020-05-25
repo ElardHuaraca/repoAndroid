@@ -1,76 +1,51 @@
+
 package pe.com.tecsup.laboratorio08.models;
 
-
+import java.util.List;
 import org.apache.commons.lang3.builder.ToStringBuilder;
 
-public abstract class ResponsePlace {
+public class ResponsePlace {
 
-    private Results results;
+    private List<Object> htmlAttributions = null;
+    private String nextPageToken;
+    private List<Result> results = null;
+    private String status;
 
-    public Results getResults() {
+    public List<Object> getHtmlAttributions() {
+        return htmlAttributions;
+    }
+
+    public void setHtmlAttributions(List<Object> htmlAttributions) {
+        this.htmlAttributions = htmlAttributions;
+    }
+
+    public String getNextPageToken() {
+        return nextPageToken;
+    }
+
+    public void setNextPageToken(String nextPageToken) {
+        this.nextPageToken = nextPageToken;
+    }
+
+    public List<Result> getResults() {
         return results;
     }
 
-    public void setResults(Results results) {
+    public void setResults(List<Result> results) {
         this.results = results;
     }
 
-    public static class Results {
-        private String name;
-        private Geometry geometry;
-
-        public String getName() {
-            return name;
-        }
-
-        public void setName(String name) {
-            this.name = name;
-        }
-
-        public Geometry getGeometry() {
-            return geometry;
-        }
-
-        public void setGeometry(Geometry geometry) {
-            this.geometry = geometry;
-        }
+    public String getStatus() {
+        return status;
     }
 
-    public static class Geometry {
-        private Location location;
-
-        public Location getLocation() {
-            return location;
-        }
-
-        public void setLocation(Location location) {
-            this.location = location;
-        }
-    }
-
-    public static class Location {
-        private double lng;
-        private double lat;
-
-        public double getLng() {
-            return lng;
-        }
-
-        public void setLng(double lng) {
-            this.lng = lng;
-        }
-
-        public double getLat() {
-            return lat;
-        }
-
-        public void setLat(double lat) {
-            this.lat = lat;
-        }
+    public void setStatus(String status) {
+        this.status = status;
     }
 
     @Override
-    public String toString(){
-        return new ToStringBuilder(this).append("results",results).toString();
+    public String toString() {
+        return new ToStringBuilder(this).append("htmlAttributions", htmlAttributions).append("nextPageToken", nextPageToken).append("results", results).append("status", status).toString();
     }
+
 }
